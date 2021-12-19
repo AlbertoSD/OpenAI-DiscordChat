@@ -1,21 +1,35 @@
+import os.path
 import openai
 from src import keys
 
-# Load your API key from an environment variable or secret management service
-openai.api_key = keys.OpenAI
+
+#     prompt=f"Test123\nHuman:{input}\nAI:",
+
+def prompt_read() -> str:
+    file = "src/prompt.txt"
+    if os.path.exists(file):
+
+        with open(file, 'r') as f:
+            return f.read()
+
+    else:
+        print("File not found")
+        return ""
 
 
-input = input("Enter what you want to the chatbot: ")
+def interact(memory: str,user_input: str, tempt: float = 0.8):
 
-response = openai.Completion.create(
-  engine="davinci",
-  prompt=f"Test123\nHuman:{input}\nAI:",
-  temperature=0.1,
-  max_tokens=150,
-  top_p=1,
-  frequency_penalty=0.0,
-  presence_penalty=0.6,
-  stop=["\n", " Human:", " AI:"]
-)
+    # print("DEBUG INFO: ", memory, user_input)
 
-print(response)
+    openai.api_key = keys.OpenAI
+
+    return openai.Completion.create(
+        engine="davinci",
+        prompt=prompt_read() + "\n" + memory + "\nHuman:" + user_input + "\nAI:",
+        temperature=tempt,
+        max_tokens=150,
+        top_p=1,
+        frequency_penalty=0.0,
+        presence_penalty=0.6,
+        stop=["\n", " Human:", " AI:"]
+    )
