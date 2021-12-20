@@ -8,7 +8,7 @@ def prompt_read() -> str:
     Reads the prompt from the prompt text file in the src module. More about the prompt in the README
     :return: The contents of prompt.txt
     """
-    file = "prompt.txt"
+    file = "src/prompt.txt"
     if os.path.exists(file):
         with open(file, 'r') as f:
             return f.read()
