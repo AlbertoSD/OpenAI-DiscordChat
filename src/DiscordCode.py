@@ -16,7 +16,7 @@ async def on_message(message):
         return
 
     if message.channel.id == 817473346743959565:
-        await print(interact(memory="", user_input=""))
+        print(interact(memory="", user_input=""))
         #message.channel.send(interact[0].text)
 
 
