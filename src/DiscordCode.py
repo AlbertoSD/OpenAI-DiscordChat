@@ -17,7 +17,7 @@ async def on_message(message):
 
     if message.channel.id == 817473346743959565:
         print(interact(memory="", user_input=""))
-        #message.channel.send(interact[0].text)
+        message.channel.send(interact[0].text)
 
 
 client.run('OTIyMjU5NDc1MzQyMTY0MDA5.Yb-3EQ.0VSetwXeDOIeTvK7OpGISdLGbpA')
