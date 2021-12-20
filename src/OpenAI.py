@@ -16,7 +16,7 @@ def prompt_read() -> str:
     return ""
 
 
-def interact(memory: str,user_input: str, tempt: float = 0.6, engine: str = "davinci"):
+def interact(memory: str,user_input: str, tempt: float = 0.6, engine: str = "babbage"):
     """
     Interacts with the bot
     :param memory: Previous messages with the bot. Should be in this format: "\nHuman: Hello\nAI: Hello\n"
